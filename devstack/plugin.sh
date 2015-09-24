@@ -245,6 +245,8 @@ function start_opendaylight {
     export JAVA_MIN_MEM=$ODL_JAVA_MIN_MEM
     export JAVA_MAX_MEM=$ODL_JAVA_MAX_MEM
     export JAVA_MAX_PERM_MEM=$ODL_JAVA_MAX_PERM_MEM
+    echo "start cmd: odl-server "$ODL_DIR/$ODL_NAME/bin/start"
+    echo "testcmd: curl -o /dev/null --fail --silent --head -u ${ODL_USERNAME}:${ODL_PASSWORD} http://${ODL_MGR_IP}:${ODL_PORT}/${ODL_BOOT_WAIT_URL}"
     run_process odl-server "$ODL_DIR/$ODL_NAME/bin/start"
 
     if [ -n "$ODL_BOOT_WAIT_URL" ]; then
